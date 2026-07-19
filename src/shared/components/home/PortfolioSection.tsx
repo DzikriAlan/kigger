@@ -39,12 +39,12 @@ export default function PortfolioSection() {
 
   return (
     <section id="portfolio" className="border-t border-divider bg-midnight">
-      <div className="relative w-full overflow-hidden bg-black">
+      <div className="no-scrollbar relative w-full overflow-x-auto overflow-y-hidden bg-black sm:overflow-x-visible">
         {projects.map((item, index) => (
           <div
             key={item.id}
             className={`transition-opacity duration-700 ease-out ${
-              index === activeIndex ? "relative opacity-100" : "absolute inset-0 opacity-0"
+              index === activeIndex ? "relative opacity-100" : "pointer-events-none absolute inset-0 opacity-0"
             }`}
             aria-hidden={index !== activeIndex}
           >
@@ -54,7 +54,7 @@ export default function PortfolioSection() {
               width={item.src.width}
               height={item.src.height}
               priority={index === 0}
-              className="h-auto w-full"
+              className="h-[42vh] w-auto max-w-none sm:h-auto sm:w-full sm:max-w-full"
             />
           </div>
         ))}
