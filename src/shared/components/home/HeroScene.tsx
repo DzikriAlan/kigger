@@ -3,9 +3,12 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-const PARTICLE_COUNT_DESKTOP = 2200;
-const PARTICLE_COUNT_MOBILE = 900;
+const PARTICLE_COUNT_DESKTOP = 4500;
+const PARTICLE_COUNT_MOBILE = 1800;
 const MOBILE_BREAKPOINT_PX = 640;
+const FIELD_SIZE = 32;
+const FIELD_HALF = FIELD_SIZE / 2;
+const DRIFT_SPEED = 0.6;
 
 export default function HeroScene() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -30,50 +33,51 @@ export default function HeroScene() {
 
     const particleCount = window.innerWidth < MOBILE_BREAKPOINT_PX ? PARTICLE_COUNT_MOBILE : PARTICLE_COUNT_DESKTOP;
     const positions = new Float32Array(particleCount * 3);
+    const velocities = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 32;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 32;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 32;
+      positions[i * 3] = (Math.random() - 0.5) * FIELD_SIZE;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * FIELD_SIZE;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * FIELD_SIZE;
+      velocities[i * 3] = (Math.random() - 0.5) * DRIFT_SPEED;
+      velocities[i * 3 + 1] = (Math.random() - 0.5) * DRIFT_SPEED;
+      velocities[i * 3 + 2] = (Math.random() - 0.5) * DRIFT_SPEED;
     }
     const particleGeometry = new THREE.BufferGeometry();
-    particleGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    const positionAttribute = new THREE.BufferAttribute(positions, 3);
+    particleGeometry.setAttribute("position", positionAttribute);
     const particleMaterial = new THREE.PointsMaterial({
-      color: 0x93c5fd,
-      size: 0.02,
+      color: 0x9dd7ff,
+      size: 0.024,
       transparent: true,
-      opacity: 0.85,
+      opacity: 0.9,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
     });
     const particles = new THREE.Points(particleGeometry, particleMaterial);
     scene.add(particles);
 
-    const polyBaseX = 2.4;
-    const polySwayRange = 1.4;
-    const polyGroup = new THREE.Group();
-    const polyGeometry = new THREE.IcosahedronGeometry(2, 0);
-    const edgesGeometry = new THREE.EdgesGeometry(polyGeometry);
-    const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x93c5fd, transparent: true, opacity: 0.55 });
-    const polyEdges = new THREE.LineSegments(edgesGeometry, edgesMaterial);
-    polyGroup.add(polyEdges);
-    polyGroup.position.set(polyBaseX, 0.2, -1);
-    polyGroup.rotation.set(0.4, 0.6, 0);
-    scene.add(polyGroup);
+    const wrapCoordinate = (value: number) => {
+      if (value > FIELD_HALF) return -FIELD_HALF;
+      if (value < -FIELD_HALF) return FIELD_HALF;
+      return value;
+    };
 
-    const keyLight = new THREE.PointLight(0x3b82f6, 12, 24);
-    keyLight.position.set(3, 3, 5);
-    scene.add(keyLight);
-    const ambientLight = new THREE.AmbientLight(0x1e3a8a, 0.7);
-    scene.add(ambientLight);
-
-    const startTime = performance.now();
+    let previousTime = performance.now();
     let animationId: number;
     const animate = () => {
-      const elapsedSeconds = (performance.now() - startTime) / 1000;
-      polyGroup.position.x = polyBaseX + Math.sin(elapsedSeconds * 0.5) * polySwayRange;
-      polyGroup.rotation.x += 0.002;
-      polyGroup.rotation.y += 0.004;
-      particles.rotation.y += 0.0006;
+      const now = performance.now();
+      const deltaSeconds = Math.min((now - previousTime) / 1000, 0.1);
+      previousTime = now;
+
+      for (let i = 0; i < particleCount; i++) {
+        const ix = i * 3;
+        positions[ix] = wrapCoordinate(positions[ix] + velocities[ix] * deltaSeconds);
+        positions[ix + 1] = wrapCoordinate(positions[ix + 1] + velocities[ix + 1] * deltaSeconds);
+        positions[ix + 2] = wrapCoordinate(positions[ix + 2] + velocities[ix + 2] * deltaSeconds);
+      }
+      positionAttribute.needsUpdate = true;
+
+      particles.rotation.y += 0.0004;
       renderer.render(scene, camera);
       animationId = requestAnimationFrame(animate);
     };
@@ -92,9 +96,6 @@ export default function HeroScene() {
       window.removeEventListener("resize", handleResize);
       particleGeometry.dispose();
       particleMaterial.dispose();
-      polyGeometry.dispose();
-      edgesGeometry.dispose();
-      edgesMaterial.dispose();
       renderer.dispose();
       renderer.domElement.remove();
     };

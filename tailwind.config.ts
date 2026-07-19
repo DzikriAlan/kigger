@@ -18,6 +18,8 @@ const config: Config = {
                 mono: ['var(--font-gt-america-mono)', 'monospace'],
                 // Serif hanya untuk aksen tipografi yang sangat spesifik (jarang dipakai)
                 serif: ['var(--font-playfair)', 'serif'],
+                // Display serif Canela-style untuk hero (logo & headline)
+                display: ['var(--font-playfair-display)', 'serif'],
             },
             colors: {
                 // Palet utama: Midnight, Gold, Navy
@@ -32,6 +34,7 @@ const config: Config = {
                     // Overlay untuk depth (glassmorphism subtle)
                     overlay: 'rgba(13, 13, 13, 0.85)',
                 },
+                // Primary Blue: warna interaktif utama (tombol, link, aksen)
                 blue: {
                     DEFAULT: '#3B82F6',
                     50: '#EFF6FF',
@@ -44,8 +47,22 @@ const config: Config = {
                     700: '#1D4ED8',
                     800: '#1E40AF',
                     900: '#1E3A8A',
-                    // Aksen biru yang lebih terang untuk hover
+                    hover: '#60A5FA',
+                    active: '#2563EB',
+                    // Alias untuk kompatibilitas kelas lama
                     glow: '#60A5FA',
+                },
+                // Glow Blue: untuk efek glow & lighting (backlight, blur ambient)
+                glow: {
+                    1: '#5EA4FF',
+                    2: '#7BC4FF',
+                    3: '#9DD7FF',
+                },
+                // Wireframe Blue: untuk garis object wireframe & elemen teknikal
+                wireframe: {
+                    line: '#4F7FFF',
+                    secondary: '#6A98FF',
+                    node: '#A8D2FF',
                 },
                 navy: {
                     DEFAULT: '#0A0A23',

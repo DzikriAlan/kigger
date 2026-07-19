@@ -14,10 +14,10 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>kigger</title>
+        <title>baturion</title>
         <meta
           name="description"
-          content="kigger is a global design and innovation firm helping organizations challenge the status quo and create a lasting impact at scale."
+          content="baturion is a global design and innovation firm helping organizations challenge the status quo and create a lasting impact at scale."
         />
       </Head>
 
@@ -27,8 +27,8 @@ const Home: NextPage = () => {
           <HeroSection />
           <OurTeamSection />
           <PrinciplesSection />
-          <InsightsSection />
           <TestimonialsSection />
+          <InsightsSection />
           <CtaSection />
         </main>
         <SiteFooter />

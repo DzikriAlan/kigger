@@ -12,7 +12,7 @@ const testimonials = [
     name: "Adrian Kessler",
     role: "VP of Product, Meridian Health",
     quote:
-      "kigger didn't just hand us a deck of concepts — they stayed in the trenches with our team through engineering, launch, and the messy parts in between. The result is a product our patients actually trust.",
+      "baturion didn't just hand us a deck of concepts — they stayed in the trenches with our team through engineering, launch, and the messy parts in between. The result is a product our patients actually trust.",
     avatarUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80",
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     name: "Priya Anand",
     role: "Head of Design, Lumen Retail",
     quote:
-      "What stood out was how quickly kigger's team understood our customers better than we did. Every workshop pushed us to challenge assumptions we didn't even know we were holding onto.",
+      "What stood out was how quickly baturion's team understood our customers better than we did. Every workshop pushed us to challenge assumptions we didn't even know we were holding onto.",
     avatarUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
     name: "Sofia Marchetti",
     role: "Director of Innovation, Nova Mobility",
     quote:
-      "This wasn't a typical agency engagement. kigger embedded with our engineers, challenged our roadmap, and left behind a team that's genuinely more capable than before we started.",
+      "This wasn't a typical agency engagement. baturion embedded with our engineers, challenged our roadmap, and left behind a team that's genuinely more capable than before we started.",
     avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
   },
 ];

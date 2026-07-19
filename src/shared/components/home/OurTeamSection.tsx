@@ -19,7 +19,7 @@ export default function OurTeamSection() {
       id="our-team"
       className="relative overflow-hidden bg-midnight px-6 py-20 sm:px-14 lg:px-24 lg:py-28 xl:px-40 2xl:px-52"
     >
-      <div className="pointer-events-none absolute right-4 top-16 aspect-[290/100] w-[280px] opacity-40 sm:right-6 sm:top-20 sm:w-[380px] lg:top-24 lg:w-[480px]">
+      <div className="pointer-events-none absolute right-0 top-14 aspect-[290/100] w-[80vw] opacity-40 sm:top-16 sm:w-[70vw] lg:top-20 lg:w-1/2 xl:w-[48vw]">
         <Image src="/indonesia-dot-map.svg" alt="" fill className="object-contain" aria-hidden />
       </div>
 
@@ -28,7 +28,7 @@ export default function OurTeamSection() {
           Our team
         </h2>
         <p className="mt-6 max-w-xl text-base text-white">
-          Meet the kigger making an impact for leading brands around the globe.
+          Meet the baturion making an impact for leading brands around the globe.
         </p>
 
         <div className="mt-12 grid max-w-sm grid-cols-1 gap-x-8 gap-y-14">

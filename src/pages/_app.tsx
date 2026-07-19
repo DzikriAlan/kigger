@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import type { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -13,7 +14,23 @@ const queryClient = new QueryClient({
   },
 });
 
+const useScrollToHashAfterLayoutSettles = () => {
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+
+    const scrollToTarget = () => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "instant" as ScrollBehavior });
+    };
+
+    const fontsReady = document.fonts?.ready ?? Promise.resolve();
+    fontsReady.then(() => requestAnimationFrame(() => requestAnimationFrame(scrollToTarget)));
+  }, []);
+};
+
 export default function App({ Component, pageProps }: AppProps) {
+  useScrollToHashAfterLayoutSettles();
+
   return (
     <QueryClientProvider client={queryClient}>
       <div className={`${fontVariables} font-sans`}>

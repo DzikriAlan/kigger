@@ -50,7 +50,7 @@ export default function SiteFooter() {
 
       <div className="relative mx-auto flex max-w-8xl flex-col items-center justify-between gap-6 sm:flex-row">
         <div className="flex flex-wrap items-center justify-center gap-2 text-xs text-white sm:justify-start">
-          <span className="font-sans text-base font-bold tracking-tighter text-foreground">kigger</span>
+          <span className="font-sans text-base font-bold tracking-tighter text-foreground">baturion</span>
           {legalLinks.map((link) => (
             <span key={link.href} className="flex items-center gap-2">
               <span className="text-divider">|</span>

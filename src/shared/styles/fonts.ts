@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Playfair_Display } from "next/font/google";
 
 export const gtAmerica = localFont({
   src: [
@@ -24,4 +25,12 @@ export const gtAlpina = localFont({
   display: "swap",
 });
 
-export const fontVariables = `${gtAmerica.variable} ${gtAmericaMono.variable} ${gtAlpina.variable}`;
+export const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair-display",
+  display: "swap",
+});
+
+export const fontVariables = `${gtAmerica.variable} ${gtAmericaMono.variable} ${gtAlpina.variable} ${playfairDisplay.variable}`;
