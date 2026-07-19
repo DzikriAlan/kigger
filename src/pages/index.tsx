@@ -14,10 +14,10 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>baturion</title>
+        <title>baturion — Define Your Identity</title>
         <meta
           name="description"
-          content="baturion is a global design and innovation firm helping organizations challenge the status quo and create a lasting impact at scale."
+          content="baturion is an IT agency based in Bandung, Indonesia, helping ambitious brands define their identity through thoughtful design and engineering."
         />
       </Head>
 

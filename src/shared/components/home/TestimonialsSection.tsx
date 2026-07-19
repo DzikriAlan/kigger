@@ -8,27 +8,27 @@ const AUTOPLAY_INTERVAL_MS = 6000;
 
 const testimonials = [
   {
-    id: "adrian-kessler",
-    name: "Adrian Kessler",
-    role: "VP of Product, Meridian Health",
+    id: "raka-pratama",
+    name: "Raka Pratama",
+    role: "Founder, Kopi Kita",
     quote:
-      "baturion didn't just hand us a deck of concepts — they stayed in the trenches with our team through engineering, launch, and the messy parts in between. The result is a product our patients actually trust.",
+      "baturion didn't just redesign our logo — they helped us figure out who we actually are as a brand. Every touchpoint feels intentional now, from our app to our packaging.",
     avatarUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80",
   },
   {
-    id: "priya-anand",
-    name: "Priya Anand",
-    role: "Head of Design, Lumen Retail",
+    id: "michelle-wijaya",
+    name: "Michelle Wijaya",
+    role: "Marketing Lead, Sekawan Media",
     quote:
-      "What stood out was how quickly baturion's team understood our customers better than we did. Every workshop pushed us to challenge assumptions we didn't even know we were holding onto.",
+      "What stood out was how closely their designers and developers worked together. Nothing got lost in translation between the design file and the actual product.",
     avatarUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
   },
   {
-    id: "sofia-marchetti",
-    name: "Sofia Marchetti",
-    role: "Director of Innovation, Nova Mobility",
+    id: "dimas-aditya",
+    name: "Dimas Aditya",
+    role: "CEO, Nusantara Fintech",
     quote:
-      "This wasn't a typical agency engagement. baturion embedded with our engineers, challenged our roadmap, and left behind a team that's genuinely more capable than before we started.",
+      "Working with a small team meant we always talked directly to the people building our product, not an account manager. That made all the difference.",
     avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
   },
 ];

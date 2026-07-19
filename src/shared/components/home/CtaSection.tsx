@@ -4,10 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const secondaryLinks = [
-  { label: "Studios", href: "#studios" },
+  { label: "Services", href: "#culture" },
   { label: "Culture", href: "#culture" },
-  { label: "DE&I", href: "#dei" },
-  { label: "Play", href: "#play" },
+  { label: "Careers", href: "#careers" },
+  { label: "Blog", href: "#insights" },
 ];
 
 export default function CtaSection() {
@@ -31,7 +31,7 @@ export default function CtaSection() {
               Ready to make your mark?
             </h2>
             <p className="mt-4 max-w-md text-base text-foreground/70">
-              As your reinvention and experience partner, our global team is here to help.
+              As your identity partner, our Bandung-based team is here to help you stand out.
             </p>
           </div>
 
@@ -42,7 +42,7 @@ export default function CtaSection() {
 
             <div className="lg:max-w-sm">
               <p className="text-base text-foreground/70">
-                Do your best work among a caring community of diverse talents.
+                Do your best work with a small, tight-knit team that treats every project like its own.
               </p>
               <Link
                 href="#careers"

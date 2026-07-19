@@ -10,25 +10,25 @@ const principles = [
     id: "challenge-the-status-quo",
     title: "Challenge the status quo",
     description:
-      "From launching game-changing products and services to redefining business as usual, our work bridges the gap between what could be and what should be.",
+      "From launching new products to rethinking how a brand shows up online, our work bridges the gap between what your identity is today and what it could become.",
   },
   {
     id: "fuse-art-and-science",
-    title: "Fuse art & science to make ideas real",
+    title: "Fuse design & engineering to make ideas real",
     description:
-      "We pair rigorous strategy and engineering with craft and intuition, turning ambitious ideas into products people can actually touch, use, and trust.",
+      "Our developers and designers work side by side, turning identity and product ideas into interfaces people can actually touch, use, and trust.",
   },
   {
     id: "create-lasting-impact",
-    title: "Create a lasting impact at global scale",
+    title: "Create a lasting impact, from Bandung to the world",
     description:
-      "We design for durability, not novelty, building experiences and systems that keep delivering value for our clients and their customers long after launch.",
+      "We design for durability, not novelty, building brands and products that keep delivering value for our clients and their customers long after launch.",
   },
   {
     id: "regenerate-systems",
-    title: "Regenerate systems & communities",
+    title: "Stay close, stay honest",
     description:
-      "Our work looks beyond the brief to the people and places it touches, aiming to leave the systems and communities we work within better than we found them.",
+      "As a small, tight-knit studio, we work closely with every client we take on, treating each project like it's our own rather than just another brief.",
   },
 ];
 

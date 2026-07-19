@@ -5,21 +5,35 @@ import { ArrowRight } from "lucide-react";
 interface Props {
   name: string;
   role: string;
-  image: StaticImageData;
+  image?: StaticImageData;
   linkedinUrl: string;
 }
+
+const getInitials = (name: string) =>
+  name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 
 export default function TeamMemberCard({ name, role, image, linkedinUrl }: Props) {
   return (
     <div className="flex flex-col">
       <div className="relative aspect-square w-full overflow-hidden bg-white">
-        <Image
-          src={image}
-          alt={name}
-          fill
-          sizes="(min-width: 1024px) 33vw, 90vw"
-          className="scale-125 object-cover object-top"
-        />
+        {image ? (
+          <Image
+            src={image}
+            alt={name}
+            fill
+            sizes="(min-width: 1024px) 33vw, 90vw"
+            className="scale-125 object-cover object-top"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-secondary">
+            <span className="font-display text-5xl text-foreground/70">{getInitials(name)}</span>
+          </div>
+        )}
       </div>
 
       <div className="mt-6 border-t border-divider pt-4">

@@ -7,9 +7,21 @@ const teamMembers = [
   {
     id: "dzikri-alan",
     name: "Dzikri Alan",
-    role: "Fullstack Developer",
+    role: "Fullstack Developer & Project Manager",
     linkedinUrl: "https://www.linkedin.com/in/dzikri-alan/",
     image: gueyPhoto,
+  },
+  {
+    id: "ifaldzi",
+    name: "Ifaldzi",
+    role: "Fullstack Developer",
+    linkedinUrl: "#contact",
+  },
+  {
+    id: "fitri",
+    name: "Fitri",
+    role: "UI/UX Designer",
+    linkedinUrl: "#contact",
   },
 ];
 
@@ -28,19 +40,21 @@ export default function OurTeamSection() {
           Our team
         </h2>
         <p className="mt-6 max-w-xl text-base text-white">
-          Meet the baturion making an impact for leading brands around the globe.
+          Meet the small, tight-knit baturion team defining identities for ambitious brands from Bandung, Indonesia.
         </p>
 
-        <div className="mt-12 grid max-w-sm grid-cols-1 gap-x-8 gap-y-14">
+        <div className="no-scrollbar -mx-6 mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-3 sm:gap-x-8 sm:gap-y-14 sm:overflow-visible sm:px-0">
           {teamMembers.map((member) => (
-            <TeamMemberCard
-              key={member.id}
-              name={member.name}
-              role={member.role}
-              image={member.image}
-              linkedinUrl={member.linkedinUrl}
-            />
+            <div key={member.id} className="w-[78vw] shrink-0 snap-start sm:w-auto sm:shrink sm:snap-align-none">
+              <TeamMemberCard
+                name={member.name}
+                role={member.role}
+                image={member.image}
+                linkedinUrl={member.linkedinUrl}
+              />
+            </div>
           ))}
+          <div className="w-px shrink-0 sm:hidden" aria-hidden />
         </div>
       </div>
     </section>

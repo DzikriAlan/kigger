@@ -43,9 +43,9 @@ export default function HeroSection() {
           <line x1="20" y1="120" x2="90" y2="150" stroke="currentColor" strokeWidth="1" />
         </svg>
         <span className="font-mono text-[10px] font-medium uppercase leading-relaxed tracking-widest text-white/40">
-          Engineering
+          Defining
           <br />
-          digital products
+          digital identities
           <br />
           that matter
         </span>
@@ -57,9 +57,9 @@ export default function HeroSection() {
       >
         <Plus className="h-3 w-3" />
         <span>
-          34.0522&deg; N
+          6.9175&deg; S
           <br />
-          118.2437&deg; W
+          107.6191&deg; E
         </span>
       </div>
 
@@ -68,15 +68,16 @@ export default function HeroSection() {
           className="font-display text-6xl text-foreground sm:text-7xl lg:text-8xl"
           style={{ fontWeight: 500 }}
         >
-          We design
+          Define
           <br />
-          what&apos;s{" "}
+          Your{" "}
           <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text italic text-transparent">
-            next
+            Identity
           </span>
         </h1>
-        <p className="mt-6 max-w-lg text-base text-white/70 sm:text-lg">
-          baturion partners with ambitious teams to challenge the status quo and build products people actually love.
+        <p className="mt-6 max-w-lg text-base text-white/70 sm:text-lg" style={{ fontWeight: 200 }}>
+          baturion is an IT agency based in Bandung, Indonesia, helping ambitious brands define their identity
+          through thoughtful design and engineering.
         </p>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -84,13 +85,14 @@ export default function HeroSection() {
             asChild
             size="lg"
             className="rounded-full bg-gradient-to-r from-blue-600 to-blue-400 text-white hover:opacity-90"
+            style={{ fontWeight: 200 }}
           >
             <Link href="#our-team" className="inline-flex items-center gap-2">
               Meet the team
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="rounded-full">
+          <Button asChild size="lg" variant="outline" className="rounded-full" style={{ fontWeight: 200 }}>
             <Link href="#culture" className="inline-flex items-center gap-2">
               Learn more
               <ArrowRight className="h-4 w-4" />
