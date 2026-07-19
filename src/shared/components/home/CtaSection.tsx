@@ -2,15 +2,18 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-
-const secondaryLinks = [
-  { label: "Services", href: "#culture" },
-  { label: "Culture", href: "#culture" },
-  { label: "Careers", href: "#careers" },
-  { label: "Blog", href: "#insights" },
-];
+import { useTranslations } from "@/shared/i18n";
 
 export default function CtaSection() {
+  const { t } = useTranslations();
+
+  const secondaryLinks = [
+    { label: t.cta.secondaryLinks.services, href: "#culture" },
+    { label: t.cta.secondaryLinks.culture, href: "#culture" },
+    { label: t.cta.secondaryLinks.careers, href: "#careers" },
+    { label: t.cta.secondaryLinks.blog, href: "#insights" },
+  ];
+
   return (
     <section
       id="make-your-mark"
@@ -28,27 +31,23 @@ export default function CtaSection() {
               className="font-serif text-4xl text-foreground sm:text-5xl lg:text-6xl"
               style={{ fontWeight: 260 }}
             >
-              Ready to make your mark?
+              {t.cta.heading}
             </h2>
-            <p className="mt-4 max-w-md text-base text-foreground/70">
-              As your identity partner, our Bandung-based team is here to help you stand out.
-            </p>
+            <p className="mt-4 max-w-md text-base text-foreground/70">{t.cta.description}</p>
           </div>
 
           <div className="flex flex-col gap-8 lg:items-end lg:text-right">
             <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
-              <Link href="#contact">Get in touch</Link>
+              <Link href="#contact">{t.cta.getInTouch}</Link>
             </Button>
 
             <div className="lg:max-w-sm">
-              <p className="text-base text-foreground/70">
-                Do your best work with a small, tight-knit team that treats every project like its own.
-              </p>
+              <p className="text-base text-foreground/70">{t.cta.joinDescription}</p>
               <Link
                 href="#careers"
                 className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-colors duration-300 hover:text-blue"
               >
-                Join our team
+                {t.cta.joinLink}
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

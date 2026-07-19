@@ -9,16 +9,16 @@ import InsightsSection from "@/shared/components/home/InsightsSection";
 import OurTeamSection from "@/shared/components/home/OurTeamSection";
 import TestimonialsSection from "@/shared/components/home/TestimonialsSection";
 import CtaSection from "@/shared/components/home/CtaSection";
+import { useTranslations } from "@/shared/i18n";
 
 const Home: NextPage = () => {
+  const { t } = useTranslations();
+
   return (
     <>
       <Head>
-        <title>baturion — Define Your Identity</title>
-        <meta
-          name="description"
-          content="baturion is an IT agency based in Bandung, Indonesia, helping ambitious brands define their identity through thoughtful design and engineering."
-        />
+        <title>{t.meta.title}</title>
+        <meta name="description" content={t.meta.description} />
       </Head>
 
       <div className="flex min-h-screen flex-col bg-midnight">

@@ -5,20 +5,31 @@ import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 import { cn } from "@/shared/lib/utils";
-
-const navLinks = [
-  { label: "Our Team", href: "#our-team" },
-  { label: "Culture", href: "#culture" },
-  { label: "Insights", href: "#insights" },
-  { label: "Make Your Mark", href: "#make-your-mark" },
-];
+import { locales, useLocaleSwitcher, useTranslations } from "@/shared/i18n";
+import type { Locale } from "@/shared/i18n";
 
 const HIDE_SCROLL_THRESHOLD_PX = 80;
 
+const localeLabels: Record<Locale, string> = { en: "EN", id: "ID" };
+
 export default function SiteHeader() {
+  const { t } = useTranslations();
+  const { locale, switchLocale } = useLocaleSwitcher();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
+  const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
+
+  const navLinks = [
+    { label: t.nav.ourTeam, href: "#our-team" },
+    { label: t.nav.culture, href: "#culture" },
+    { label: t.nav.insights, href: "#insights" },
+  ];
+
+  const handleSelectLocale = (nextLocale: Locale) => {
+    setIsLangMenuOpen(false);
+    if (nextLocale !== locale) switchLocale(nextLocale);
+  };
 
   const handleToggleMenu = () => setIsMenuOpen((open) => !open);
   const handleCloseMenu = () => setIsMenuOpen(false);
@@ -64,18 +75,47 @@ export default function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <button
-              type="button"
-              className="hidden items-center gap-1.5 rounded-full border border-divider px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-foreground transition-colors duration-300 hover:border-foreground/60 lg:inline-flex"
-            >
-              Global
-              <ChevronDown className="h-3.5 w-3.5" />
-            </button>
+            <div className="relative hidden lg:block">
+              <button
+                type="button"
+                onClick={() => setIsLangMenuOpen((open) => !open)}
+                aria-haspopup="listbox"
+                aria-expanded={isLangMenuOpen}
+                className="inline-flex items-center gap-1.5 rounded-full border border-divider px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-foreground transition-colors duration-300 hover:border-foreground/60"
+              >
+                {localeLabels[locale]}
+                <ChevronDown className="h-3.5 w-3.5" />
+              </button>
+
+              <div
+                className={cn(
+                  "absolute right-0 top-full mt-2 min-w-[6rem] overflow-hidden rounded-xl border border-divider bg-midnight/95 backdrop-blur-md transition-opacity duration-200",
+                  isLangMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+                )}
+                role="listbox"
+              >
+                {locales.map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    role="option"
+                    aria-selected={option === locale}
+                    onClick={() => handleSelectLocale(option)}
+                    className={cn(
+                      "block w-full px-4 py-2 text-left text-xs font-medium uppercase tracking-widest transition-colors duration-300 hover:bg-foreground/5 hover:text-blue",
+                      option === locale ? "text-blue" : "text-foreground/80"
+                    )}
+                  >
+                    {localeLabels[option]}
+                  </button>
+                ))}
+              </div>
+            </div>
 
             <button
               type="button"
               onClick={handleToggleMenu}
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={isMenuOpen ? t.nav.closeMenu : t.nav.openMenu}
               aria-expanded={isMenuOpen}
               className="inline-flex h-10 w-10 items-center justify-center text-foreground lg:hidden"
             >
@@ -102,13 +142,22 @@ export default function SiteHeader() {
                   {link.label}
                 </Link>
               ))}
-              <button
-                type="button"
-                className="mt-2 inline-flex w-fit items-center gap-1.5 rounded-full border border-divider px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-foreground"
-              >
-                Global
-                <ChevronDown className="h-3.5 w-3.5" />
-              </button>
+              <div className="mt-2 inline-flex w-fit items-center gap-1 rounded-full border border-divider p-1">
+                {locales.map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    aria-pressed={option === locale}
+                    onClick={() => handleSelectLocale(option)}
+                    className={cn(
+                      "rounded-full px-3 py-1 text-xs font-medium uppercase tracking-widest transition-colors duration-300",
+                      option === locale ? "bg-foreground/10 text-blue" : "text-foreground/80"
+                    )}
+                  >
+                    {localeLabels[option]}
+                  </button>
+                ))}
+              </div>
             </nav>
           </div>
         </div>

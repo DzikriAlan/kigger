@@ -2,30 +2,23 @@ import Image from "next/image";
 
 import gueyPhoto from "@/shared/images/guey.jpg";
 import TeamMemberCard from "@/shared/components/home/TeamMemberCard";
+import { useTranslations } from "@/shared/i18n";
 
-const teamMembers = [
-  {
-    id: "dzikri-alan",
-    name: "Dzikri Alan",
-    role: "Fullstack Developer & Project Manager",
-    linkedinUrl: "https://www.linkedin.com/in/dzikri-alan/",
-    image: gueyPhoto,
-  },
-  {
-    id: "ifaldzi",
-    name: "Ifaldzi",
-    role: "Fullstack Developer",
-    linkedinUrl: "#contact",
-  },
-  {
-    id: "fitri",
-    name: "Fitri",
-    role: "UI/UX Designer",
-    linkedinUrl: "#contact",
-  },
-];
+const teamMemberLinks: Record<string, { linkedinUrl: string; image?: typeof gueyPhoto }> = {
+  "dzikri-alan": { linkedinUrl: "https://www.linkedin.com/in/dzikri-alan/", image: gueyPhoto },
+  ifaldzi: { linkedinUrl: "#contact" },
+  fitri: { linkedinUrl: "#contact" },
+};
 
 export default function OurTeamSection() {
+  const { t } = useTranslations();
+
+  const teamMembers = Object.entries(t.ourTeam.members).map(([id, member]) => ({
+    id,
+    ...member,
+    ...teamMemberLinks[id],
+  }));
+
   return (
     <section
       id="our-team"
@@ -37,11 +30,9 @@ export default function OurTeamSection() {
 
       <div className="relative">
         <h2 className="font-serif text-5xl text-foreground sm:text-6xl lg:text-7xl" style={{ fontWeight: 260 }}>
-          Our team
+          {t.ourTeam.heading}
         </h2>
-        <p className="mt-6 max-w-xl text-base text-white">
-          Meet the small, tight-knit baturion team defining identities for ambitious brands from Bandung, Indonesia.
-        </p>
+        <p className="mt-6 max-w-xl text-base text-white">{t.ourTeam.description}</p>
 
         <div className="no-scrollbar -mx-6 mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-3 sm:gap-x-8 sm:gap-y-14 sm:overflow-visible sm:px-0">
           {teamMembers.map((member) => (
@@ -51,6 +42,7 @@ export default function OurTeamSection() {
                 role={member.role}
                 image={member.image}
                 linkedinUrl={member.linkedinUrl}
+                connectLabel={t.ourTeam.connectLinkedin}
               />
             </div>
           ))}

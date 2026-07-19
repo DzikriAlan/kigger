@@ -1,11 +1,6 @@
 import Link from "next/link";
 
-const legalLinks = [
-  { label: "Privacy Policy", href: "#privacy-policy" },
-  { label: "Terms of Use", href: "#terms-of-use" },
-  { label: "Cookie Policy", href: "#cookie-policy" },
-  { label: "Cookie Settings", href: "#cookie-settings" },
-];
+import { useTranslations } from "@/shared/i18n";
 
 const socialLinks = [
   {
@@ -41,6 +36,15 @@ const socialLinks = [
 ];
 
 export default function SiteFooter() {
+  const { t } = useTranslations();
+
+  const legalLinks = [
+    { label: t.footer.legal.privacyPolicy, href: "#privacy-policy" },
+    { label: t.footer.legal.termsOfUse, href: "#terms-of-use" },
+    { label: t.footer.legal.cookiePolicy, href: "#cookie-policy" },
+    { label: t.footer.legal.cookieSettings, href: "#cookie-settings" },
+  ];
+
   return (
     <footer className="relative overflow-hidden border-t border-divider bg-midnight px-6 py-8 sm:px-14 lg:px-24 xl:px-40 2xl:px-52">
       <div

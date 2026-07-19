@@ -61,21 +61,21 @@ export default function HeroScene() {
     const startTime = performance.now();
     const getElapsedSeconds = () => (performance.now() - startTime) / 1000;
 
-    // A medium interactive wireframe cube that wanders the hero on its own
-    // and eases toward wherever the visitor clicks or taps.
-    let cubeTargetX = -3.2;
-    let cubeTargetY = -2;
-    let nextWanderAtSeconds = 3;
+    // A medium interactive wireframe cube that drifts continuously on a
+    // wandering path and eases toward wherever the visitor clicks or taps,
+    // decaying back into the drift so it never settles and goes still.
+    const getIdleTarget = (seconds: number) => ({
+      x: Math.sin(seconds * 0.15) * 1.7 + Math.sin(seconds * 0.37) * 0.5,
+      y: Math.cos(seconds * 0.12) * 1.4 + Math.sin(seconds * 0.29 + 1.2) * 0.6,
+    });
 
-    const pickWanderTarget = () => {
-      const x =
-        Math.random() < 0.5
-          ? THREE.MathUtils.randFloat(-CUBE_BOUNDS, -1.4)
-          : THREE.MathUtils.randFloat(1.4, CUBE_BOUNDS);
-      const y = THREE.MathUtils.randFloat(-CUBE_BOUNDS, CUBE_BOUNDS);
-      cubeTargetX = x;
-      cubeTargetY = y;
-    };
+    let attractorX = 0;
+    let attractorY = 0;
+    let attractorStartSeconds = -Infinity;
+    const ATTRACTOR_DECAY_SECONDS = 4;
+
+    let cubeTargetX = getIdleTarget(0).x;
+    let cubeTargetY = getIdleTarget(0).y;
 
     const cubeGroup = new THREE.Group();
     const cubeGeometry = new THREE.BoxGeometry(1.1, 1.1, 1.1);
@@ -97,9 +97,13 @@ export default function HeroScene() {
       raycaster.setFromCamera(pointerNdc, camera);
       const intersection = new THREE.Vector3();
       if (raycaster.ray.intersectPlane(followPlane, intersection)) {
-        cubeTargetX = THREE.MathUtils.clamp(intersection.x, -CUBE_BOUNDS, CUBE_BOUNDS);
-        cubeTargetY = THREE.MathUtils.clamp(intersection.y, -CUBE_BOUNDS, CUBE_BOUNDS);
-        nextWanderAtSeconds = getElapsedSeconds() + THREE.MathUtils.randFloat(3, 5);
+        const clickX = THREE.MathUtils.clamp(intersection.x, -CUBE_BOUNDS, CUBE_BOUNDS);
+        const clickY = THREE.MathUtils.clamp(intersection.y, -CUBE_BOUNDS, CUBE_BOUNDS);
+        const now = getElapsedSeconds();
+        const idle = getIdleTarget(now);
+        attractorX = clickX - idle.x;
+        attractorY = clickY - idle.y;
+        attractorStartSeconds = now;
       }
     };
     renderer.domElement.addEventListener("pointerdown", handlePointerDown);
@@ -128,10 +132,13 @@ export default function HeroScene() {
 
       particles.rotation.y += 0.0004;
 
-      if (elapsedSeconds > nextWanderAtSeconds) {
-        pickWanderTarget();
-        nextWanderAtSeconds = elapsedSeconds + THREE.MathUtils.randFloat(3, 5);
-      }
+      const idle = getIdleTarget(elapsedSeconds);
+      const attractorDecay = Math.max(
+        0,
+        1 - (elapsedSeconds - attractorStartSeconds) / ATTRACTOR_DECAY_SECONDS
+      );
+      cubeTargetX = idle.x + attractorX * attractorDecay;
+      cubeTargetY = idle.y + attractorY * attractorDecay;
 
       cubeGroup.rotation.x += 0.006;
       cubeGroup.rotation.y += 0.009;

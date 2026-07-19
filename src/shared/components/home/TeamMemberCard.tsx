@@ -7,6 +7,7 @@ interface Props {
   role: string;
   image?: StaticImageData;
   linkedinUrl: string;
+  connectLabel: string;
 }
 
 const getInitials = (name: string) =>
@@ -17,7 +18,7 @@ const getInitials = (name: string) =>
     .slice(0, 2)
     .toUpperCase();
 
-export default function TeamMemberCard({ name, role, image, linkedinUrl }: Props) {
+export default function TeamMemberCard({ name, role, image, linkedinUrl, connectLabel }: Props) {
   return (
     <div className="flex flex-col">
       <div className="relative aspect-square w-full overflow-hidden bg-white">
@@ -47,7 +48,7 @@ export default function TeamMemberCard({ name, role, image, linkedinUrl }: Props
         rel="noopener noreferrer"
         className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors duration-300 hover:text-blue"
       >
-        Connect LinkedIn
+        {connectLabel}
         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
       </Link>
     </div>

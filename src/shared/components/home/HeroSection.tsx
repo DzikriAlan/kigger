@@ -1,18 +1,21 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronDown, Plus } from "lucide-react";
+import { ArrowRight, Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import rightHeroImage from "@/shared/images/righthero.png";
+import { useTranslations } from "@/shared/i18n";
 
 const HeroScene = dynamic(() => import("@/shared/components/home/HeroScene"), { ssr: false });
 
 export default function HeroSection() {
+  const { t } = useTranslations();
+
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-midnight px-6 py-28 sm:px-14 lg:px-24 xl:px-40 2xl:px-52"
+      className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-midnight px-6 py-20 sm:px-14 lg:px-24 xl:px-40 2xl:px-52"
     >
       <div
         className="pointer-events-none absolute -bottom-40 -left-40 h-[32rem] w-[32rem] rounded-full bg-blue-600/25 blur-3xl"
@@ -22,15 +25,22 @@ export default function HeroSection() {
       <HeroScene />
 
       <div
-        className="pointer-events-none absolute right-6 top-1/2 hidden aspect-[1156/1024] w-[400px] -translate-y-1/2 lg:block xl:right-10 xl:w-[540px] 2xl:right-14 2xl:w-[640px]"
+        className="pointer-events-none absolute right-0 bottom-2 aspect-[1156/1024] w-[150px] overflow-hidden opacity-90 sm:right-4 sm:bottom-4 sm:w-[230px] sm:opacity-100 lg:right-6 lg:top-1/2 lg:bottom-auto lg:w-[400px] lg:-translate-y-1/2 lg:overflow-visible xl:right-10 xl:w-[540px] 2xl:right-14 2xl:w-[640px]"
         style={{ mixBlendMode: "screen" }}
         aria-hidden
       >
-        <Image src={rightHeroImage} alt="" fill sizes="640px" className="object-contain" priority />
+        <Image
+          src={rightHeroImage}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 640px, 230px"
+          className="scale-[2.2] object-contain sm:scale-[1.8] lg:scale-100"
+          priority
+        />
       </div>
 
       <div
-        className="pointer-events-none absolute left-6 top-1/2 hidden -translate-y-1/2 flex-col gap-2 sm:left-10 lg:flex lg:left-16 xl:left-24"
+        className="pointer-events-none absolute left-4 top-6 flex origin-top-left scale-[0.55] flex-col gap-2 sm:left-10 sm:scale-75 lg:top-1/2 lg:origin-center lg:-translate-y-1/2 lg:scale-100 lg:left-16 xl:left-24"
         aria-hidden
       >
         <svg width="140" height="180" viewBox="0 0 140 180" className="text-wireframe-line/30">
@@ -43,16 +53,16 @@ export default function HeroSection() {
           <line x1="20" y1="120" x2="90" y2="150" stroke="currentColor" strokeWidth="1" />
         </svg>
         <span className="font-mono text-[10px] font-medium uppercase leading-relaxed tracking-widest text-white/40">
-          Defining
+          {t.hero.eyebrowLine1}
           <br />
-          digital identities
+          {t.hero.eyebrowLine2}
           <br />
-          that matter
+          {t.hero.eyebrowLine3}
         </span>
       </div>
 
       <div
-        className="pointer-events-none absolute right-6 top-20 hidden items-start gap-2 font-mono text-[10px] uppercase tracking-widest text-white/40 sm:right-10 lg:right-16 lg:flex xl:right-24"
+        className="pointer-events-none absolute right-4 top-6 flex origin-top-right scale-[0.7] items-start gap-2 font-mono text-[10px] uppercase tracking-widest text-white/40 sm:right-10 sm:top-10 sm:scale-90 lg:right-16 lg:top-20 lg:scale-100 xl:right-24"
         aria-hidden
       >
         <Plus className="h-3 w-3" />
@@ -63,21 +73,21 @@ export default function HeroSection() {
         </span>
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center text-center">
+      <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-start text-left sm:items-center sm:text-center">
         <h1
           className="font-display text-6xl text-foreground sm:text-7xl lg:text-8xl"
           style={{ fontWeight: 500 }}
         >
-          Define
+          {t.hero.titleLine1}
           <br />
-          Your{" "}
+          {t.hero.titleLine2Prefix ? `${t.hero.titleLine2Prefix} ` : ""}
           <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text italic text-transparent">
-            Identity
+            {t.hero.titleHighlight}
           </span>
+          {t.hero.titleLine2Suffix ? ` ${t.hero.titleLine2Suffix}` : ""}
         </h1>
         <p className="mt-6 max-w-lg text-base text-white/70 sm:text-lg" style={{ fontWeight: 200 }}>
-          baturion is an IT agency based in Bandung, Indonesia, helping ambitious brands define their identity
-          through thoughtful design and engineering.
+          {t.hero.description}
         </p>
 
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -88,23 +98,16 @@ export default function HeroSection() {
             style={{ fontWeight: 200 }}
           >
             <Link href="#our-team" className="inline-flex items-center gap-2">
-              Meet the team
+              {t.hero.primaryCta}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
           <Button asChild size="lg" variant="outline" className="rounded-full" style={{ fontWeight: 200 }}>
             <Link href="#culture" className="inline-flex items-center gap-2">
-              Learn more
+              {t.hero.secondaryCta}
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
-        </div>
-
-        <div className="mt-16 flex flex-col items-center gap-3">
-          <span className="font-mono text-[10px] font-medium uppercase tracking-widest text-white/40">Explore</span>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-divider text-foreground">
-            <ChevronDown className="h-4 w-4" />
-          </span>
         </div>
       </div>
     </section>

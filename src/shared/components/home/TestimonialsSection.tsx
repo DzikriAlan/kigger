@@ -4,36 +4,23 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+import { useTranslations } from "@/shared/i18n";
+
 const AUTOPLAY_INTERVAL_MS = 6000;
 
-const testimonials = [
-  {
-    id: "raka-pratama",
-    name: "Raka Pratama",
-    role: "Founder, Kopi Kita",
-    quote:
-      "baturion didn't just redesign our logo — they helped us figure out who we actually are as a brand. Every touchpoint feels intentional now, from our app to our packaging.",
-    avatarUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80",
-  },
-  {
-    id: "michelle-wijaya",
-    name: "Michelle Wijaya",
-    role: "Marketing Lead, Sekawan Media",
-    quote:
-      "What stood out was how closely their designers and developers worked together. Nothing got lost in translation between the design file and the actual product.",
-    avatarUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
-  },
-  {
-    id: "dimas-aditya",
-    name: "Dimas Aditya",
-    role: "CEO, Nusantara Fintech",
-    quote:
-      "Working with a small team meant we always talked directly to the people building our product, not an account manager. That made all the difference.",
-    avatarUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
-  },
-];
+const testimonialAvatars: Record<string, string> = {
+  "raka-pratama": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80",
+  "michelle-wijaya": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+  "dimas-aditya": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
+};
 
 export default function TestimonialsSection() {
+  const { t } = useTranslations();
+  const testimonials = Object.entries(t.testimonials.items).map(([id, testimonial]) => ({
+    id,
+    ...testimonial,
+    avatarUrl: testimonialAvatars[id],
+  }));
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleShowTestimonial = (index: number) => setActiveIndex(index);
@@ -80,7 +67,7 @@ export default function TestimonialsSection() {
                 <button
                   key={item.id}
                   type="button"
-                  aria-label={`Show testimonial from ${item.name}`}
+                  aria-label={t.testimonials.showTestimonialFrom.replace("{name}", item.name)}
                   onClick={() => handleShowTestimonial(index)}
                   className={`h-1.5 w-1.5 rounded-full transition-colors duration-300 ${
                     index === activeIndex ? "bg-blue" : "bg-divider"
@@ -92,7 +79,7 @@ export default function TestimonialsSection() {
               <button
                 type="button"
                 onClick={handlePreviousTestimonial}
-                aria-label="Previous testimonial"
+                aria-label={t.testimonials.previous}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-divider text-foreground transition-colors duration-300 hover:border-foreground/60"
               >
                 <ChevronLeft className="h-4 w-4" />
@@ -100,7 +87,7 @@ export default function TestimonialsSection() {
               <button
                 type="button"
                 onClick={handleNextTestimonial}
-                aria-label="Next testimonial"
+                aria-label={t.testimonials.next}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-divider text-foreground transition-colors duration-300 hover:border-foreground/60"
               >
                 <ChevronRight className="h-4 w-4" />
