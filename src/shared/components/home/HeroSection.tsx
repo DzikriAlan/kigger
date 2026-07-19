@@ -40,7 +40,7 @@ export default function HeroSection() {
       </div>
 
       <div
-        className="pointer-events-none absolute left-4 top-6 flex origin-top-left scale-[0.55] flex-col gap-2 sm:left-10 sm:scale-75 lg:top-1/2 lg:origin-center lg:-translate-y-1/2 lg:scale-100 lg:left-16 xl:left-24"
+        className="pointer-events-none absolute left-16 top-1/2 hidden -translate-y-1/2 flex-col gap-2 lg:flex xl:left-24"
         aria-hidden
       >
         <svg width="140" height="180" viewBox="0 0 140 180" className="text-wireframe-line/30">
@@ -62,7 +62,7 @@ export default function HeroSection() {
       </div>
 
       <div
-        className="pointer-events-none absolute right-4 top-6 flex origin-top-right scale-[0.7] items-start gap-2 font-mono text-[10px] uppercase tracking-widest text-white/40 sm:right-10 sm:top-10 sm:scale-90 lg:right-16 lg:top-20 lg:scale-100 xl:right-24"
+        className="pointer-events-none absolute right-16 top-20 hidden items-start gap-2 font-mono text-[10px] uppercase tracking-widest text-white/40 lg:flex xl:right-24"
         aria-hidden
       >
         <Plus className="h-3 w-3" />
