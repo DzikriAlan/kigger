@@ -25,7 +25,7 @@ export default function HeroSection() {
       <HeroScene />
 
       <div
-        className="pointer-events-none absolute right-0 bottom-2 aspect-[1156/1024] w-[min(72vw,320px)] sm:right-4 sm:bottom-4 sm:w-[min(55vw,400px)] lg:right-6 lg:bottom-6 lg:w-[420px] xl:right-10 xl:w-[540px] 2xl:right-14 2xl:w-[640px]"
+        className="pointer-events-none absolute right-0 bottom-2 aspect-[1156/1024] w-[min(85vw,420px)] sm:right-4 sm:bottom-4 sm:w-[min(68vw,520px)] lg:-right-4 lg:bottom-6 lg:w-[560px] xl:-right-6 xl:w-[700px] 2xl:-right-8 2xl:w-[820px]"
         style={{ mixBlendMode: "screen" }}
         aria-hidden
       >
@@ -33,7 +33,7 @@ export default function HeroSection() {
           src={rightHeroImage}
           alt=""
           fill
-          sizes="(min-width: 1024px) 640px, 260px"
+          sizes="(min-width: 1024px) 820px, 340px"
           className="object-contain"
           priority
         />
@@ -62,7 +62,7 @@ export default function HeroSection() {
       </div>
 
       <div
-        className="pointer-events-none absolute right-16 top-20 hidden items-start gap-2 font-mono text-[10px] uppercase tracking-widest text-white/40 lg:flex xl:right-24"
+        className="pointer-events-none absolute right-16 top-32 hidden items-start gap-2 font-mono text-[10px] uppercase tracking-widest text-white/40 lg:flex xl:right-24 xl:top-36"
         aria-hidden
       >
         <Plus className="h-3 w-3" />
