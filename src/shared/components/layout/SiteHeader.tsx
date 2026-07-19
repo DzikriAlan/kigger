@@ -52,7 +52,7 @@ export default function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 px-6 pt-6 transition-transform duration-500 ease-out sm:px-12 lg:px-20 xl:px-32 2xl:px-40",
+        "fixed inset-x-0 top-0 z-50 px-6 pt-6 transition-transform duration-500 ease-out sm:px-12 lg:px-20 xl:px-32 2xl:px-40",
         isHidden ? "-translate-y-[calc(100%+2rem)]" : "translate-y-0"
       )}
     >

@@ -15,7 +15,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-midnight px-6 py-20 sm:px-14 lg:px-24 xl:px-40 2xl:px-52"
+      className="relative flex min-h-[100dvh] flex-col items-center justify-center overflow-hidden bg-midnight px-6 py-20 sm:px-14 lg:px-24 xl:px-40 2xl:px-52"
     >
       <div
         className="pointer-events-none absolute -bottom-40 -left-40 h-[32rem] w-[32rem] rounded-full bg-blue-600/25 blur-3xl"
@@ -25,7 +25,7 @@ export default function HeroSection() {
       <HeroScene />
 
       <div
-        className="pointer-events-none absolute right-0 bottom-2 aspect-[1156/1024] w-[150px] overflow-hidden opacity-90 sm:right-4 sm:bottom-4 sm:w-[230px] sm:opacity-100 lg:right-6 lg:top-1/2 lg:bottom-auto lg:w-[400px] lg:-translate-y-1/2 lg:overflow-visible xl:right-10 xl:w-[540px] 2xl:right-14 2xl:w-[640px]"
+        className="pointer-events-none absolute right-0 bottom-2 aspect-[1156/1024] w-[min(72vw,320px)] sm:right-4 sm:bottom-4 sm:w-[min(55vw,400px)] lg:right-6 lg:bottom-6 lg:w-[420px] xl:right-10 xl:w-[540px] 2xl:right-14 2xl:w-[640px]"
         style={{ mixBlendMode: "screen" }}
         aria-hidden
       >
@@ -33,8 +33,8 @@ export default function HeroSection() {
           src={rightHeroImage}
           alt=""
           fill
-          sizes="(min-width: 1024px) 640px, 230px"
-          className="scale-[2.2] object-contain sm:scale-[1.8] lg:scale-100"
+          sizes="(min-width: 1024px) 640px, 260px"
+          className="object-contain"
           priority
         />
       </div>
