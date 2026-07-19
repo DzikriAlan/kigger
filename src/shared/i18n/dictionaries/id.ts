@@ -4,7 +4,7 @@ const id: Dictionary = {
   meta: {
     title: "baturion — Definisikan Identitas Anda",
     description:
-      "baturion adalah agensi IT yang berbasis di Bandung, Indonesia, membantu brand-brand ambisius mendefinisikan identitas mereka melalui desain dan rekayasa yang matang.",
+      "baturion adalah agensi IT yang membantu tim membangun sistem web dan produk digital yang andal melalui desain dan rekayasa yang matang.",
   },
   nav: {
     ourTeam: "Tim Kami",
@@ -24,15 +24,14 @@ const id: Dictionary = {
     titleHighlight: "Identitas",
     titleLine2Suffix: "Anda",
     description:
-      "baturion adalah agensi IT yang berbasis di Bandung, Indonesia, membantu brand-brand ambisius mendefinisikan identitas mereka melalui desain dan rekayasa yang matang.",
+      "baturion adalah agensi IT yang membantu tim membangun sistem web dan produk digital yang andal melalui desain dan rekayasa yang matang.",
     primaryCta: "Kenali tim kami",
     secondaryCta: "Pelajari lebih lanjut",
     exploreLabel: "Jelajahi",
   },
   ourTeam: {
     heading: "Tim kami",
-    description:
-      "Kenali tim baturion yang kecil dan solid, mendefinisikan identitas untuk brand-brand ambisius dari Bandung, Indonesia.",
+    description: "Kenali tim baturion yang kecil dan solid, membangun sistem web dan produk digital bersama-sama.",
     connectLinkedin: "Terhubung di LinkedIn",
     members: {
       "dzikri-alan": {
@@ -53,19 +52,19 @@ const id: Dictionary = {
     heading: "Prinsip kami",
     items: {
       "challenge-the-status-quo": {
-        title: "Menantang status quo",
+        title: "Membangun sistem yang benar-benar berfungsi",
         description:
-          "Dari meluncurkan produk baru hingga memikirkan ulang bagaimana sebuah brand tampil secara online, karya kami menjembatani kesenjangan antara identitas Anda hari ini dan apa yang bisa dicapai.",
+          "Dari meluncurkan produk baru hingga menata ulang bagaimana sebuah sistem berjalan di baliknya, karya kami menjembatani kesenjangan antara kondisi produk Anda hari ini dan tujuan yang ingin dicapai.",
       },
       "fuse-art-and-science": {
         title: "Memadukan desain & rekayasa untuk mewujudkan ide",
         description:
-          "Developer dan desainer kami bekerja berdampingan, mengubah ide identitas dan produk menjadi antarmuka yang benar-benar bisa disentuh, digunakan, dan dipercaya orang.",
+          "Developer dan desainer kami bekerja berdampingan, mengubah ide produk menjadi antarmuka dan sistem yang benar-benar bisa disentuh, digunakan, dan dipercaya orang.",
       },
       "create-lasting-impact": {
-        title: "Menciptakan dampak yang bertahan lama, dari Bandung untuk dunia",
+        title: "Menciptakan dampak yang bertahan lama",
         description:
-          "Kami mendesain untuk daya tahan, bukan sekadar tren, membangun brand dan produk yang terus memberikan nilai bagi klien dan pelanggan mereka jauh setelah peluncuran.",
+          "Kami membangun untuk daya tahan, bukan sekadar tren — software dan produk yang terus memberikan nilai bagi klien dan pengguna mereka jauh setelah peluncuran.",
       },
       "regenerate-systems": {
         title: "Tetap dekat, tetap jujur",
@@ -83,7 +82,7 @@ const id: Dictionary = {
         name: "Raka Pratama",
         role: "Pendiri, Kopi Kita",
         quote:
-          "baturion tidak hanya mendesain ulang logo kami — mereka membantu kami menemukan siapa sebenarnya brand kami. Setiap titik sentuh kini terasa intentional, dari aplikasi kami hingga kemasan kami.",
+          "baturion tidak hanya membangun website kami — mereka membantu kami menyusun sistem yang benar-benar nyaman dipakai tim kami setiap hari, dari alur pemesanan sampai back office.",
       },
       "michelle-wijaya": {
         name: "Michelle Wijaya",
@@ -101,12 +100,11 @@ const id: Dictionary = {
   },
   insights: {
     heading: "Wawasan terbaru",
-    description:
-      "Catatan dari tim kami tentang identitas brand, rekayasa produk, dan desain — langsung dari studio kami di Bandung.",
+    description: "Catatan dari tim kami tentang rekayasa produk, sistem web, dan desain.",
     items: {
       "brand-identity-best-feature": {
         type: "Artikel",
-        title: "Mengapa Identitas Brand Adalah Fitur Produk Terbaik Anda",
+        title: "Mengapa Rekayasa yang Andal Adalah Fitur Produk Terbaik Anda",
         cta: "Baca",
       },
       "building-fullstack-products-that-scale": {
@@ -128,7 +126,7 @@ const id: Dictionary = {
   },
   cta: {
     heading: "Siap tinggalkan jejak Anda?",
-    description: "Sebagai partner identitas Anda, tim kami yang berbasis di Bandung siap membantu Anda menonjol.",
+    description: "Sebagai partner teknologi Anda, kami siap membantu Anda membangun sesuatu yang bertahan lama.",
     getInTouch: "Hubungi kami",
     joinDescription:
       "Kerjakan hasil terbaik Anda bersama tim yang kecil dan solid, yang memperlakukan setiap proyek seolah miliknya sendiri.",
@@ -141,6 +139,7 @@ const id: Dictionary = {
     },
   },
   footer: {
+    location: "Bandung, Indonesia",
     legal: {
       privacyPolicy: "Kebijakan Privasi",
       termsOfUse: "Ketentuan Penggunaan",

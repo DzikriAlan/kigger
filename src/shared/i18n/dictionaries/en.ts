@@ -2,7 +2,7 @@ const en = {
   meta: {
     title: "baturion — Define Your Identity",
     description:
-      "baturion is an IT agency based in Bandung, Indonesia, helping ambitious brands define their identity through thoughtful design and engineering.",
+      "baturion is an IT agency helping teams build reliable web systems and digital products through thoughtful design and engineering.",
   },
   nav: {
     ourTeam: "Our Team",
@@ -22,15 +22,14 @@ const en = {
     titleHighlight: "Identity",
     titleLine2Suffix: "",
     description:
-      "baturion is an IT agency based in Bandung, Indonesia, helping ambitious brands define their identity through thoughtful design and engineering.",
+      "baturion is an IT agency helping teams build reliable web systems and digital products through thoughtful design and engineering.",
     primaryCta: "Meet the team",
     secondaryCta: "Learn more",
     exploreLabel: "Explore",
   },
   ourTeam: {
     heading: "Our team",
-    description:
-      "Meet the small, tight-knit baturion team defining identities for ambitious brands from Bandung, Indonesia.",
+    description: "Meet the small, tight-knit baturion team building web systems and digital products, together.",
     connectLinkedin: "Connect LinkedIn",
     members: {
       "dzikri-alan": {
@@ -51,19 +50,19 @@ const en = {
     heading: "Our principles",
     items: {
       "challenge-the-status-quo": {
-        title: "Challenge the status quo",
+        title: "Build systems that actually work",
         description:
-          "From launching new products to rethinking how a brand shows up online, our work bridges the gap between what your identity is today and what it could become.",
+          "From launching new products to reworking how a system runs behind the scenes, our work bridges the gap between where your product is today and where it needs to go.",
       },
       "fuse-art-and-science": {
         title: "Fuse design & engineering to make ideas real",
         description:
-          "Our developers and designers work side by side, turning identity and product ideas into interfaces people can actually touch, use, and trust.",
+          "Our developers and designers work side by side, turning product ideas into interfaces and systems people can actually touch, use, and trust.",
       },
       "create-lasting-impact": {
-        title: "Create a lasting impact, from Bandung to the world",
+        title: "Create impact that lasts",
         description:
-          "We design for durability, not novelty, building brands and products that keep delivering value for our clients and their customers long after launch.",
+          "We build for durability, not novelty — software and products that keep delivering value for our clients and their users long after launch.",
       },
       "regenerate-systems": {
         title: "Stay close, stay honest",
@@ -81,7 +80,7 @@ const en = {
         name: "Raka Pratama",
         role: "Founder, Kopi Kita",
         quote:
-          "baturion didn't just redesign our logo — they helped us figure out who we actually are as a brand. Every touchpoint feels intentional now, from our app to our packaging.",
+          "baturion didn't just build us a website — they helped us put together a system our team actually enjoys using every day, from the ordering flow to the back office.",
       },
       "michelle-wijaya": {
         name: "Michelle Wijaya",
@@ -99,12 +98,11 @@ const en = {
   },
   insights: {
     heading: "Latest insights",
-    description:
-      "Notes from our team on brand identity, product engineering, and design — straight from our studio in Bandung.",
+    description: "Notes from our team on product engineering, web systems, and design.",
     items: {
       "brand-identity-best-feature": {
         type: "Article",
-        title: "Why Brand Identity Is Your Best Product Feature",
+        title: "Why Reliable Engineering Is Your Best Product Feature",
         cta: "Read",
       },
       "building-fullstack-products-that-scale": {
@@ -126,7 +124,7 @@ const en = {
   },
   cta: {
     heading: "Ready to make your mark?",
-    description: "As your identity partner, our Bandung-based team is here to help you stand out.",
+    description: "As your technology partner, we're here to help you build something that lasts.",
     getInTouch: "Get in touch",
     joinDescription: "Do your best work with a small, tight-knit team that treats every project like its own.",
     joinLink: "Join our team",
@@ -138,6 +136,7 @@ const en = {
     },
   },
   footer: {
+    location: "Bandung, Indonesia",
     legal: {
       privacyPolicy: "Privacy Policy",
       termsOfUse: "Terms of Use",

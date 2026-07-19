@@ -31,7 +31,9 @@ export default function PrinciplesAccordionItem({ title, description, isOpen, on
         )}
       >
         <div className="overflow-hidden">
-          <p className="max-w-xl text-base text-foreground/70">{description}</p>
+          <p className="max-w-xl text-base text-foreground/70" style={{ fontWeight: 200 }}>
+            {description}
+          </p>
         </div>
       </div>
     </div>
