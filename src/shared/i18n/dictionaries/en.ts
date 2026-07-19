@@ -46,6 +46,24 @@ const en = {
       },
     },
   },
+  portfolio: {
+    heading: "Our portfolio",
+    description: "A look at the systems and products we've helped bring to life.",
+    items: {
+      "lsp-smkn2-cikarang-barat": {
+        title: "Certification System for SMKN 2 Cikarang Barat",
+        description:
+          "A BNSP-licensed competency certification dashboard, streamlining schedules, assessments, and reporting for LSP SMKN 2 Cikarang Barat.",
+        cta: "Explore the work",
+      },
+      "cost-control-akkarya-jaya": {
+        title: "Cost Control System for PT Akkarya Jaya Pratama",
+        description:
+          "A project cost-control dashboard tracking budgets, expenses, and cash flow across active construction projects in real time.",
+        cta: "Explore the work",
+      },
+    },
+  },
   principles: {
     heading: "Our principles",
     items: {

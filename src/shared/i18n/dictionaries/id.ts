@@ -48,6 +48,24 @@ const id: Dictionary = {
       },
     },
   },
+  portfolio: {
+    heading: "Portofolio kami",
+    description: "Sekilas sistem dan produk yang telah kami bantu wujudkan.",
+    items: {
+      "lsp-smkn2-cikarang-barat": {
+        title: "Sistem Sertifikasi untuk SMKN 2 Cikarang Barat",
+        description:
+          "Dashboard sertifikasi kompetensi berlisensi BNSP, menyederhanakan jadwal, asesmen, dan pelaporan untuk LSP SMKN 2 Cikarang Barat.",
+        cta: "Jelajahi hasil kerja",
+      },
+      "cost-control-akkarya-jaya": {
+        title: "Sistem Cost Control untuk PT Akkarya Jaya Pratama",
+        description:
+          "Dashboard kontrol biaya proyek yang melacak anggaran, pengeluaran, dan arus kas di seluruh proyek konstruksi yang berjalan secara real-time.",
+        cta: "Jelajahi hasil kerja",
+      },
+    },
+  },
   principles: {
     heading: "Prinsip kami",
     items: {

@@ -7,6 +7,7 @@ import HeroSection from "@/shared/components/home/HeroSection";
 import PrinciplesSection from "@/shared/components/home/PrinciplesSection";
 import InsightsSection from "@/shared/components/home/InsightsSection";
 import OurTeamSection from "@/shared/components/home/OurTeamSection";
+import PortfolioSection from "@/shared/components/home/PortfolioSection";
 import TestimonialsSection from "@/shared/components/home/TestimonialsSection";
 import CtaSection from "@/shared/components/home/CtaSection";
 import { useTranslations } from "@/shared/i18n";
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
         <main className="flex-1">
           <HeroSection />
           <OurTeamSection />
+          <PortfolioSection />
           <PrinciplesSection />
           <TestimonialsSection />
           <InsightsSection />
