@@ -8,12 +8,16 @@ import { ArrowRight } from "lucide-react";
 import { useTranslations } from "@/shared/i18n";
 import lspImage from "@/shared/images/lsp.png";
 import costControlImage from "@/shared/images/costcontrol.png";
+import zaidanArrafifImage from "@/shared/images/zaidan-arrafif-screen.webp";
+import openCommissImage from "@/shared/images/opencommiss-home.webp";
 
 const AUTOPLAY_INTERVAL_MS = 6000;
 
 const portfolioImages: Record<string, { src: StaticImageData; alt: string }> = {
   "lsp-smkn2-cikarang-barat": { src: lspImage, alt: "LSP SMKN 2 Cikarang Barat certification dashboard" },
   "cost-control-akkarya-jaya": { src: costControlImage, alt: "Cost Control dashboard for PT Akkarya Jaya Pratama" },
+  "zaidan-arrafif": { src: zaidanArrafifImage, alt: "Zaidan Arrafif journal and Qur'an memorizing app screens" },
+  opencommiss: { src: openCommissImage, alt: "OpenCommiss open commission art platform homepage" },
 };
 
 export default function PortfolioSection() {

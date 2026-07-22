@@ -16,9 +16,6 @@ const id: Dictionary = {
     closeMenu: "Tutup menu",
   },
   hero: {
-    eyebrowLine1: "Mendefinisikan",
-    eyebrowLine2: "identitas digital",
-    eyebrowLine3: "yang berarti",
     titleLine1: "Definisikan",
     titleLine2Prefix: "",
     titleHighlight: "Identitas",
@@ -62,6 +59,18 @@ const id: Dictionary = {
         title: "Sistem Cost Control untuk PT Akkarya Jaya Pratama",
         description:
           "Dashboard kontrol biaya proyek yang melacak anggaran, pengeluaran, dan arus kas di seluruh proyek konstruksi yang berjalan secara real-time.",
+        cta: "Jelajahi hasil kerja",
+      },
+      "zaidan-arrafif": {
+        title: "Zaidan Arrafif — Aplikasi Jurnal Harian & Hafalan Qur'an",
+        description:
+          "Aplikasi Android jurnal harian dan hafalan Qur'an dengan gamifikasi untuk SD Zaidan Educare, meraih Juara 1 POLBAN Student Scientific Week 2021 kategori PKM-PM.",
+        cta: "Jelajahi hasil kerja",
+      },
+      opencommiss: {
+        title: "Backend OpenCommiss — Platform Open Commission Art",
+        description:
+          "Sisi backend OpenCommiss, platform open commission art yang mempertemukan ilustrator digital dengan klien, terintegrasi dengan payment gateway Xendit. Dibangun sebagai proyek akhir diploma di POLBAN.",
         cta: "Jelajahi hasil kerja",
       },
     },

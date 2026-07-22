@@ -14,9 +14,6 @@ const en = {
     closeMenu: "Close menu",
   },
   hero: {
-    eyebrowLine1: "Defining",
-    eyebrowLine2: "digital identities",
-    eyebrowLine3: "that matter",
     titleLine1: "Define",
     titleLine2Prefix: "Your",
     titleHighlight: "Identity",
@@ -60,6 +57,18 @@ const en = {
         title: "Cost Control System for PT Akkarya Jaya Pratama",
         description:
           "A project cost-control dashboard tracking budgets, expenses, and cash flow across active construction projects in real time.",
+        cta: "Explore the work",
+      },
+      "zaidan-arrafif": {
+        title: "Zaidan Arrafif — Daily Journal & Qur'an Memorizing App",
+        description:
+          "A daily journal entry and Qur'an memorizing Android app with gamification for Zaidan Educare Elementary School, awarded 1st place at POLBAN Student Scientific Week 2021 in the PKM-PM category.",
+        cta: "Explore the work",
+      },
+      opencommiss: {
+        title: "Backend for OpenCommiss — Open Commission Art Platform",
+        description:
+          "The backend for OpenCommiss, an open commission art platform connecting digital illustrators with clients, integrated with the Xendit payment gateway. Built as a POLBAN diploma final project.",
         cta: "Explore the work",
       },
     },

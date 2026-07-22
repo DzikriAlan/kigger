@@ -1,23 +1,31 @@
 import Image from "next/image";
 
 import gueyPhoto from "@/shared/images/guey.jpg";
+import ifalPhoto from "@/shared/images/ifal.webp";
 import TeamMemberCard from "@/shared/components/home/TeamMemberCard";
 import { useTranslations } from "@/shared/i18n";
 
-const teamMemberLinks: Record<string, { linkedinUrl: string; image?: typeof gueyPhoto }> = {
+const teamMemberLinks: Record<string, { linkedinUrl: string; image?: typeof gueyPhoto; imageClassName?: string }> = {
   "dzikri-alan": { linkedinUrl: "https://www.linkedin.com/in/dzikri-alan/", image: gueyPhoto },
-  ifaldzi: { linkedinUrl: "#contact" },
+  ifaldzi: {
+    linkedinUrl: "https://www.linkedin.com/in/ifaldzi-alwi-hudhori-5a2220149/",
+    image: ifalPhoto,
+    imageClassName: "object-cover object-center",
+  },
   fitri: { linkedinUrl: "#contact" },
 };
 
 export default function OurTeamSection() {
   const { t } = useTranslations();
 
-  const teamMembers = Object.entries(t.ourTeam.members).map(([id, member]) => ({
-    id,
-    ...member,
-    ...teamMemberLinks[id],
-  }));
+  const hiddenMemberIds = new Set(["fitri"]);
+  const teamMembers = Object.entries(t.ourTeam.members)
+    .filter(([id]) => !hiddenMemberIds.has(id))
+    .map(([id, member]) => ({
+      id,
+      ...member,
+      ...teamMemberLinks[id],
+    }));
 
   return (
     <section
@@ -41,6 +49,7 @@ export default function OurTeamSection() {
                 name={member.name}
                 role={member.role}
                 image={member.image}
+                imageClassName={member.imageClassName}
                 linkedinUrl={member.linkedinUrl}
                 connectLabel={t.ourTeam.connectLinkedin}
               />

@@ -6,6 +6,7 @@ interface Props {
   name: string;
   role: string;
   image?: StaticImageData;
+  imageClassName?: string;
   linkedinUrl: string;
   connectLabel: string;
 }
@@ -18,7 +19,7 @@ const getInitials = (name: string) =>
     .slice(0, 2)
     .toUpperCase();
 
-export default function TeamMemberCard({ name, role, image, linkedinUrl, connectLabel }: Props) {
+export default function TeamMemberCard({ name, role, image, imageClassName, linkedinUrl, connectLabel }: Props) {
   return (
     <div className="flex flex-col">
       <div className="relative aspect-square w-full overflow-hidden bg-white">
@@ -28,7 +29,7 @@ export default function TeamMemberCard({ name, role, image, linkedinUrl, connect
             alt={name}
             fill
             sizes="(min-width: 1024px) 33vw, 90vw"
-            className="scale-125 object-cover object-top"
+            className={imageClassName ?? "scale-125 object-cover object-top"}
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-secondary">
